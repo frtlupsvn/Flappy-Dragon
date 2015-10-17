@@ -32,7 +32,11 @@ extension SKNode {
 class GameViewController: UIViewController,GameScenePlayDelegate {
 
     @IBOutlet weak var lblHighestScore: UILabel!
+    @IBOutlet weak var lblHighestScoreBoard: UILabel!
+    @IBOutlet weak var lblHighScoreBoard: UILabel!
     @IBOutlet weak var viewScoreBoard: UIView!
+    @IBOutlet weak var imgMedal: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,17 +93,35 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     
     func updateHighestScore(score: NSInteger) {
         
-        var highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
+        let highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
+        
+        self.lblHighScoreBoard.text = String(score)
         
         if (score > highestScore){
             
             NSUserDefaults.standardUserDefaults().setObject(score, forKey: "highestScore")
             NSUserDefaults.standardUserDefaults().synchronize()
             self.lblHighestScore.text = (String) (NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger)
+            self.lblHighestScoreBoard.text = (String) (NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger)
             
         }
         
+        //Medel Bronze
+        if (score < 20 ){
+            self.imgMedal.image = UIImage(named: "bronze.png")
+        }
+        
+        //Medal Silver
+        if (score > 20 ){
+            self.imgMedal.image = UIImage(named: "silver.png")
+        }
+        
+        //Medal Gold
+        if (score > 50 ){
+            self.imgMedal.image = UIImage(named: "gold.png")
+        }
     }
+        
     
     func gameStarted(){
        self.viewScoreBoard.hidden = true

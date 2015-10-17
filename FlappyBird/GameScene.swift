@@ -168,7 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pipePair.zPosition = -10
         
         // Set height of pipe
-        let height = UInt32( self.frame.size.height / 7)
+        let height = UInt32( self.frame.size.height / 9)
         let y = Double(arc4random_uniform(height) + height);
         
         let pipeDown = SKSpriteNode(texture: pipeTextureDown)

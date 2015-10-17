@@ -48,31 +48,31 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zya-cO-b0R">
                                 <rect key="frame" x="175" y="175" width="250" height="250"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scoreboard-halloween" translatesAutoresizingMaskIntoConstraints="NO" id="8Wc-Dm-xkU">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scoreboard-halloween" translatesAutoresizingMaskIntoConstraints="NO" id="8Wc-Dm-xkU">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                         <animations/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-ug-zHO">
-                                        <rect key="frame" x="199" y="94" width="11" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Df-ug-zHO">
+                                        <rect key="frame" x="172" y="94" width="38" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="SuperMarioGalaxy" family="Super Mario 256" pointSize="17"/>
                                         <color key="textColor" red="0.97647058823529409" green="0.55686274509803924" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-Lm-CtZ">
-                                        <rect key="frame" x="199" y="132" width="11" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmh-Lm-CtZ">
+                                        <rect key="frame" x="172" y="132" width="38" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="SuperMarioGalaxy" family="Super Mario 256" pointSize="17"/>
                                         <color key="textColor" red="0.96470588235294119" green="0.47843137254901963" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bronze.png" translatesAutoresizingMaskIntoConstraints="NO" id="RTy-RU-lOu">
+                                        <rect key="frame" x="43" y="97" width="50" height="59"/>
+                                        <animations/>
+                                    </imageView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstItem="8Wc-Dm-xkU" firstAttribute="top" secondItem="zya-cO-b0R" secondAttribute="top" id="0i9-fi-kTy"/>
-                                    <constraint firstItem="8Wc-Dm-xkU" firstAttribute="leading" secondItem="zya-cO-b0R" secondAttribute="leading" id="7x1-Q8-JOq"/>
-                                    <constraint firstAttribute="bottom" secondItem="8Wc-Dm-xkU" secondAttribute="bottom" id="V9y-w3-GCN"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Wc-Dm-xkU" secondAttribute="trailing" id="WHG-Ra-X3n"/>
                                     <constraint firstAttribute="width" constant="250" id="eMk-Ly-Yg8"/>
                                     <constraint firstAttribute="height" constant="250" id="u2e-Ww-Dsb"/>
                                 </constraints>
@@ -90,7 +90,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lblHighestScore" destination="foz-WR-0ew" id="c0J-B6-dBD"/>
+                        <outlet property="imgMedal" destination="RTy-RU-lOu" id="wVv-pS-Gqi"/>
+                        <outlet property="lblHighScoreBoard" destination="6Df-ug-zHO" id="mLc-7m-7XC"/>
+                        <outlet property="lblHighestScore" destination="foz-WR-0ew" id="c9y-YR-HH5"/>
+                        <outlet property="lblHighestScoreBoard" destination="Wmh-Lm-CtZ" id="XTK-GI-geH"/>
                         <outlet property="viewScoreBoard" destination="zya-cO-b0R" id="gjG-Y1-DYq"/>
                     </connections>
                 </viewController>
@@ -100,6 +103,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bronze.png" width="400" height="601"/>
         <image name="scoreboard-halloween" width="236" height="280"/>
     </resources>
 </document>
