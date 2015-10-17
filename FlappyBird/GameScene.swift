@@ -43,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         canRestart = false
         
         // setup physics
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
         self.physicsWorld.contactDelegate = self
         
         // setup background color
@@ -228,6 +228,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         moving.speed = 1
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        //Start Game
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        
         /* Called when a touch begins */
         if moving.speed > 0  {
             for touch: AnyObject in touches {
