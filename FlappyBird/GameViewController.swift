@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import Social
+import iAd
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -30,8 +31,9 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController,GameScenePlayDelegate {
+class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDelegate {
 
+    //MARK: - IBOulet
     @IBOutlet weak var lblHighestScore: UILabel!
     @IBOutlet weak var lblHighestScoreBoard: UILabel!
     @IBOutlet weak var lblHighScoreBoard: UILabel!
@@ -39,11 +41,26 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     @IBOutlet weak var imgMedal: UIImageView!
     @IBOutlet weak var btnShareFacebook: UIButton!
     
+    //MARK: - IBAction
     @IBAction func btnShareFacebookTapped(sender: AnyObject) {
       shareButtonPress()
     }
+    
+    //MARK: - Parameters
+    var bannerView: ADBannerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bannerView = ADBannerView(adType: .Banner)
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.delegate = self
+        bannerView.hidden = true
+        view.addSubview(bannerView)
+        
+        let viewsDictionary = ["bannerView": bannerView]
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[bannerView]|", options: [], metrics: nil, views: viewsDictionary))
         
         //Load highest Score
         if ((NSUserDefaults.standardUserDefaults().objectForKey("highestScore")) != nil){
@@ -166,6 +183,15 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     func gameOver(){
         self.viewScoreBoard.hidden = false
         self.btnShareFacebook.hidden = false
+    }
+    
+    //MARK: - iAd Delegate
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        bannerView.hidden = false
+    }
+    
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
+        bannerView.hidden = true
     }
     
 }

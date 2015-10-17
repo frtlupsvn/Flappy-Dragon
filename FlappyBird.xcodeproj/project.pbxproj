@@ -20,6 +20,7 @@
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; settings = {ASSET_TAGS = (); }; };
 		5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */; settings = {ASSET_TAGS = (); }; };
+		5A86D0CD1BD2C21E009C1AEE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A86D0CC1BD2C21E009C1AEE /* iAd.framework */; };
 		5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5A8E03D91BD22F510078AAC4 /* SuperMario256.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */; settings = {ASSET_TAGS = (); }; };
 		5A8E03DC1BD2312B0078AAC4 /* city-backbground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */; settings = {ASSET_TAGS = (); }; };
@@ -65,6 +66,7 @@
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
 		5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wolf.mp3; sourceTree = "<group>"; };
+		5A86D0CC1BD2C21E009C1AEE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
 		5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "city-backbground.jpg"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A86D0CD1BD2C21E009C1AEE /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +106,7 @@
 		437451F1193D163700654986 = {
 			isa = PBXGroup;
 			children = (
+				5A86D0CC1BD2C21E009C1AEE /* iAd.framework */,
 				437451FC193D163700654986 /* FlappyBird */,
 				43745213193D163800654986 /* FlappyBirdTests */,
 				437451FB193D163700654986 /* Products */,
@@ -480,14 +484,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: HUU DUNG NGUYEN (34ZZ9A4787)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HUU DUNG NGUYEN (34ZZ9A4787)";
 				INFOPLIST_FILE = FlappyBird/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappybat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "fb895dce-0843-4f09-91ad-6a01cd9c5c7e";
 			};
 			name = Debug;
 		};
@@ -496,14 +500,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: HUU DUNG NGUYEN (TY52BPKFCE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HUU DUNG NGUYEN (TY52BPKFCE)";
 				INFOPLIST_FILE = FlappyBird/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappybat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d4412b2a-5609-45cf-92e7-47b07eee928d";
 			};
 			name = Release;
 		};
