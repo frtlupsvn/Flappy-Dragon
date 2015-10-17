@@ -48,7 +48,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zya-cO-b0R">
                                 <rect key="frame" x="175" y="175" width="250" height="250"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scoreboard-halloween" translatesAutoresizingMaskIntoConstraints="NO" id="8Wc-Dm-xkU">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scoreboard-halloween" translatesAutoresizingMaskIntoConstraints="NO" id="8Wc-Dm-xkU">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
                                         <animations/>
                                     </imageView>
@@ -73,23 +73,50 @@
                                 </subviews>
                                 <animations/>
                                 <constraints>
+                                    <constraint firstItem="8Wc-Dm-xkU" firstAttribute="leading" secondItem="zya-cO-b0R" secondAttribute="leading" id="6gD-gN-kgT"/>
+                                    <constraint firstItem="8Wc-Dm-xkU" firstAttribute="top" secondItem="zya-cO-b0R" secondAttribute="top" id="9Vo-zj-rBZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Wc-Dm-xkU" secondAttribute="trailing" id="VAK-YT-bYq"/>
+                                    <constraint firstAttribute="bottom" secondItem="8Wc-Dm-xkU" secondAttribute="bottom" id="VkZ-oc-Q0d"/>
                                     <constraint firstAttribute="width" constant="250" id="eMk-Ly-Yg8"/>
                                     <constraint firstAttribute="height" constant="250" id="u2e-Ww-Dsb"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-5H-84m" userLabel="shareFacebook">
+                                <rect key="frame" x="250" y="433" width="100" height="25"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="gjE-O5-ag7"/>
+                                    <constraint firstAttribute="height" constant="25" id="hbT-Q7-Ced"/>
+                                </constraints>
+                                <state key="normal" image="share-facebook.png"/>
+                                <connections>
+                                    <action selector="btnShareFacebookTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="t9v-Gw-TBJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="foz-WR-0ew" firstAttribute="top" secondItem="maK-i9-Uhn" secondAttribute="bottom" constant="5" id="7Yx-54-mMy"/>
+                            <constraint firstItem="ag9-5H-84m" firstAttribute="top" secondItem="8Wc-Dm-xkU" secondAttribute="bottom" constant="8" id="Hbm-WG-KCc"/>
+                            <constraint firstItem="ag9-5H-84m" firstAttribute="top" secondItem="zya-cO-b0R" secondAttribute="bottom" constant="8" symbolic="YES" id="KUW-j7-dJl"/>
                             <constraint firstItem="foz-WR-0ew" firstAttribute="leading" secondItem="x3r-rN-OZb" secondAttribute="trailing" constant="8" id="Mbf-JA-Xbp"/>
                             <constraint firstItem="zya-cO-b0R" firstAttribute="centerY" secondItem="3se-qz-xqx" secondAttribute="centerY" id="TQZ-dq-YXq"/>
                             <constraint firstItem="x3r-rN-OZb" firstAttribute="top" secondItem="maK-i9-Uhn" secondAttribute="bottom" constant="5" id="YlP-9Q-MCJ"/>
+                            <constraint firstItem="ag9-5H-84m" firstAttribute="top" secondItem="zya-cO-b0R" secondAttribute="bottom" constant="8" id="gcQ-r6-mBN"/>
                             <constraint firstItem="x3r-rN-OZb" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="5" id="ngL-cW-2HX"/>
                             <constraint firstItem="zya-cO-b0R" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="sss-Kv-XvM"/>
+                            <constraint firstItem="ag9-5H-84m" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="uf0-LZ-Mi0"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hbm-WG-KCc"/>
+                                <exclude reference="gcQ-r6-mBN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="btnShareFacebook" destination="ag9-5H-84m" id="xDm-OT-7oq"/>
                         <outlet property="imgMedal" destination="RTy-RU-lOu" id="wVv-pS-Gqi"/>
                         <outlet property="lblHighScoreBoard" destination="6Df-ug-zHO" id="mLc-7m-7XC"/>
                         <outlet property="lblHighestScore" destination="foz-WR-0ew" id="c9y-YR-HH5"/>
@@ -105,5 +132,6 @@
     <resources>
         <image name="bronze.png" width="400" height="601"/>
         <image name="scoreboard-halloween" width="236" height="280"/>
+        <image name="share-facebook.png" width="500" height="97"/>
     </resources>
 </document>

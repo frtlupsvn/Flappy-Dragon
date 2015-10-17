@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import Social
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -36,7 +37,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     @IBOutlet weak var lblHighScoreBoard: UILabel!
     @IBOutlet weak var viewScoreBoard: UIView!
     @IBOutlet weak var imgMedal: UIImageView!
+    @IBOutlet weak var btnShareFacebook: UIButton!
     
+    @IBAction func btnShareFacebookTapped(sender: AnyObject) {
+      shareButtonPress()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,6 +96,33 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
     
+    // MARK: - BUTTON TAPPED
+    func shareButtonPress() {
+        
+        var postPhrase = "New high score"
+        
+        //Generate the screenshot
+        var image = capture()
+        let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+        shareToFacebook.setInitialText(postPhrase)
+        shareToFacebook.addImage(image)
+        presentViewController(shareToFacebook, animated: true, completion: nil)
+    }
+    
+    func capture() -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.viewScoreBoard.frame.size, self.viewScoreBoard.opaque, 0.0)
+        self.viewScoreBoard.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
+
+    // MARK: - GameScene Delegate
+    
     func updateHighestScore(score: NSInteger) {
         
         var highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
@@ -128,10 +160,12 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     
     func gameStarted(){
        self.viewScoreBoard.hidden = true
+        self.btnShareFacebook.hidden = true
     }
     
     func gameOver(){
         self.viewScoreBoard.hidden = false
+        self.btnShareFacebook.hidden = false
     }
     
 }

@@ -18,6 +18,7 @@
 		5A14C5721BD2A1AF00047CBC /* silver.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C56F1BD2A1AF00047CBC /* silver.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5701BD2A1AF00047CBC /* bronze.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; settings = {ASSET_TAGS = (); }; };
+		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; settings = {ASSET_TAGS = (); }; };
 		5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5A8E03D91BD22F510078AAC4 /* SuperMario256.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */; settings = {ASSET_TAGS = (); }; };
 		5A8E03DC1BD2312B0078AAC4 /* city-backbground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +62,7 @@
 		5A14C56F1BD2A1AF00047CBC /* silver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = silver.png; sourceTree = "<group>"; };
 		5A14C5701BD2A1AF00047CBC /* bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bronze.png; sourceTree = "<group>"; };
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
+		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
 		5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
 		5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "city-backbground.jpg"; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			name = medal;
 			sourceTree = "<group>";
 		};
+		5A14C5751BD2A7FC00047CBC /* button */ = {
+			isa = PBXGroup;
+			children = (
+				5A14C5761BD2A80A00047CBC /* share-facebook.png */,
+			);
+			name = button;
+			sourceTree = "<group>";
+		};
 		5A8E03D71BD22F390078AAC4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,9 +199,10 @@
 		5A8E03DA1BD231030078AAC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5A14C5751BD2A7FC00047CBC /* button */,
 				5A14C56E1BD2A19700047CBC /* medal */,
 				5A14C56D1BD2A18D00047CBC /* background */,
-				5A8E03E61BD24F130078AAC4 /* sprite */,
+				5A8E03E61BD24F130078AAC4 /* bat sprite */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -206,7 +217,7 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
-		5A8E03E61BD24F130078AAC4 /* sprite */ = {
+		5A8E03E61BD24F130078AAC4 /* bat sprite */ = {
 			isa = PBXGroup;
 			children = (
 				5A8E03E71BD24F1F0078AAC4 /* frame-1.png */,
@@ -218,7 +229,7 @@
 				5A8E03ED1BD24F1F0078AAC4 /* frame-7.png */,
 				5A8E03EE1BD24F1F0078AAC4 /* frame-8.png */,
 			);
-			name = sprite;
+			name = "bat sprite";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +320,7 @@
 				5A8E03F51BD24F1F0078AAC4 /* frame-7.png in Resources */,
 				5A8E03DC1BD2312B0078AAC4 /* city-backbground.jpg in Resources */,
 				5A14C5741BD2A1AF00047CBC /* gold.png in Resources */,
+				5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */,
 				5A8E03F31BD24F1F0078AAC4 /* frame-5.png in Resources */,
 				4374520B193D163800654986 /* Images.xcassets in Resources */,
 				5A8E03F61BD24F1F0078AAC4 /* frame-8.png in Resources */,
