@@ -93,18 +93,21 @@ class GameViewController: UIViewController,GameScenePlayDelegate {
     
     func updateHighestScore(score: NSInteger) {
         
-        let highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
+        var highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
         
         self.lblHighScoreBoard.text = String(score)
         
         if (score > highestScore){
             
+            highestScore = score
+
+            // Save score to local database
             NSUserDefaults.standardUserDefaults().setObject(score, forKey: "highestScore")
             NSUserDefaults.standardUserDefaults().synchronize()
-            self.lblHighestScore.text = (String) (NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger)
-            self.lblHighestScoreBoard.text = (String) (NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger)
-            
         }
+        
+        self.lblHighestScore.text = String(highestScore)
+        self.lblHighestScoreBoard.text = String(highestScore)
         
         //Medel Bronze
         if (score < 20 ){

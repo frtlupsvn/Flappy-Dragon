@@ -221,6 +221,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         // Reset score
         score = 0
+        scoreDelegate?.updateHighestScore(0)
         scoreLabelNode.text = String(score)
         
         // Restart animation
