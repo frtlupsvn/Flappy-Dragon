@@ -19,6 +19,7 @@
 		5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5701BD2A1AF00047CBC /* bronze.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; settings = {ASSET_TAGS = (); }; };
+		5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */; settings = {ASSET_TAGS = (); }; };
 		5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5A8E03D91BD22F510078AAC4 /* SuperMario256.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */; settings = {ASSET_TAGS = (); }; };
 		5A8E03DC1BD2312B0078AAC4 /* city-backbground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */; settings = {ASSET_TAGS = (); }; };
@@ -63,6 +64,7 @@
 		5A14C5701BD2A1AF00047CBC /* bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bronze.png; sourceTree = "<group>"; };
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
+		5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wolf.mp3; sourceTree = "<group>"; };
 		5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5A8E03D81BD22F510078AAC4 /* SuperMario256.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SuperMario256.ttf; sourceTree = "<group>"; };
 		5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "city-backbground.jpg"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		5A8E03DD1BD244800078AAC4 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */,
 				5A8E03E41BD248FA0078AAC4 /* point.wav */,
 				5A8E03DE1BD2448F0078AAC4 /* flap.wav */,
 				5A8E03DF1BD2448F0078AAC4 /* hit.wav */,
@@ -330,6 +333,7 @@
 				5A8E03F11BD24F1F0078AAC4 /* frame-3.png in Resources */,
 				5A8E03F01BD24F1F0078AAC4 /* frame-2.png in Resources */,
 				43745202193D163700654986 /* GameScene.sks in Resources */,
+				5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */,
 				437A3DBA193D326A00909BA0 /* bird.atlas in Resources */,
 				5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */,
 				5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */,
@@ -481,7 +485,7 @@
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappydragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappybat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -497,7 +501,7 @@
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappydragon;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zoomcancode.flappybat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

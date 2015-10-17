@@ -41,10 +41,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     override func didMoveToView(view: SKView) {
         
         canRestart = false
+        wolfSound ()
         
         // setup physics
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: 0.0 )
         self.physicsWorld.contactDelegate = self
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "updateGravity", userInfo: nil, repeats: false)
+
         
         // setup background color
         skyColor = SKColor(red: 244.0/255.0, green: 145.0/255.0, blue: 68.0/255.0, alpha: 1.0)
@@ -205,6 +209,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
+    func updateGravity(){
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+    }
+    
     func resetScene (){
         // Move bird to original position and reset velocity
         bird.position = CGPoint(x: self.frame.size.width / 2.5, y: self.frame.midY)
@@ -226,11 +234,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         // Restart animation
         moving.speed = 1
+        
+        // wolf sound
+        wolfSound ()
     }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         //Start Game
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        updateGravity()
         
         /* Called when a touch begins */
         if moving.speed > 0  {
@@ -311,6 +322,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     func pointSound () {
         let playAction = SKAction.playSoundFileNamed("point.wav", waitForCompletion: false)
+        self.runAction(playAction)
+    }
+    func wolfSound () {
+        let playAction = SKAction.playSoundFileNamed("wolf.mp3", waitForCompletion: false)
         self.runAction(playAction)
     }
     
