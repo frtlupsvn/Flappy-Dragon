@@ -63,13 +63,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "AppIcon-1.png",
+      "filename" : "AppIcon-2.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "AppIcon@2x-1.png",
+      "filename" : "AppIcon-1.png",
       "scale" : "2x"
     }
   ],
