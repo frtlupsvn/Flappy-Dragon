@@ -12,7 +12,7 @@ import AVFoundation
 protocol GameScenePlayDelegate {
     func updateHighestScore(score:NSInteger)
     func gameStarted()
-    func gameOver()
+    func gameOver(score:NSInteger)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
@@ -163,7 +163,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scoreLabelNode.zPosition = 100
         scoreLabelNode.text = String(score)
         self.addChild(scoreLabelNode)
-        
+
     }
     
     func spawnPipes() {
@@ -211,6 +211,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func updateGravity(){
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        scoreDelegate?.updateHighestScore(score)
+
     }
     
     func resetScene (){
@@ -306,7 +308,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                             self.canRestart = true
                             })]), withKey: "flash")
                 
-                scoreDelegate?.gameOver()
+                scoreDelegate?.gameOver(score)
             }
         }
     }

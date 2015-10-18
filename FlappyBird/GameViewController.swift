@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 import Social
 import iAd
+import Parse
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -149,10 +150,6 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         if (score > highestScore){
             
             highestScore = score
-
-            // Save score to local database
-            NSUserDefaults.standardUserDefaults().setObject(score, forKey: "highestScore")
-            NSUserDefaults.standardUserDefaults().synchronize()
         }
         
         self.lblHighestScore.text = String(highestScore)
@@ -180,9 +177,35 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         self.btnShareFacebook.hidden = true
     }
     
-    func gameOver(){
+    func gameOver(score: NSInteger){
         self.viewScoreBoard.hidden = false
         self.btnShareFacebook.hidden = false
+        
+        
+        // Send highest score to parse.com
+        let highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
+        if (score > highestScore){
+            
+            // Save score to local database
+            NSUserDefaults.standardUserDefaults().setObject(score, forKey: "highestScore")
+            NSUserDefaults.standardUserDefaults().synchronize()
+            
+            // Save highest score to Parse
+            let gameScore = PFObject(className:"GameScore")
+            gameScore["score"] = score
+            let installation = PFInstallation.currentInstallation()
+            gameScore["device"] = installation
+            
+            gameScore.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+        }
+        
     }
     
     //MARK: - iAd Delegate
