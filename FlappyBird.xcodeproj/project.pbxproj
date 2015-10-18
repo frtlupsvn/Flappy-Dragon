@@ -19,6 +19,18 @@
 		5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5701BD2A1AF00047CBC /* bronze.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; settings = {ASSET_TAGS = (); }; };
 		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; settings = {ASSET_TAGS = (); }; };
+		5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */; settings = {ASSET_TAGS = (); }; };
+		5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FB1BD398CD008ECA35 /* Parse.framework */; settings = {ASSET_TAGS = (); }; };
+		5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */; };
+		5A5FF6011BD39916008ECA35 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6001BD39916008ECA35 /* CFNetwork.framework */; };
+		5A5FF6031BD39920008ECA35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6021BD39920008ECA35 /* CoreGraphics.framework */; };
+		5A5FF6051BD39929008ECA35 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6041BD39929008ECA35 /* CoreLocation.framework */; };
+		5A5FF6071BD39932008ECA35 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6061BD39932008ECA35 /* QuartzCore.framework */; };
+		5A5FF6091BD3993A008ECA35 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6081BD3993A008ECA35 /* Security.framework */; };
+		5A5FF60B1BD39942008ECA35 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF60A1BD39942008ECA35 /* StoreKit.framework */; };
+		5A5FF60D1BD3994D008ECA35 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF60C1BD3994D008ECA35 /* SystemConfiguration.framework */; };
+		5A5FF60F1BD3995C008ECA35 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF60E1BD3995C008ECA35 /* libz.tbd */; };
+		5A5FF6111BD39968008ECA35 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF6101BD39968008ECA35 /* libsqlite3.tbd */; };
 		5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */; settings = {ASSET_TAGS = (); }; };
 		5A86D0CD1BD2C21E009C1AEE /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A86D0CC1BD2C21E009C1AEE /* iAd.framework */; };
 		5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
@@ -65,6 +77,18 @@
 		5A14C5701BD2A1AF00047CBC /* bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bronze.png; sourceTree = "<group>"; };
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
+		5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		5A5FF5FB1BD398CD008ECA35 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5A5FF6001BD39916008ECA35 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5A5FF6021BD39920008ECA35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5A5FF6041BD39929008ECA35 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5A5FF6061BD39932008ECA35 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5A5FF6081BD3993A008ECA35 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5A5FF60A1BD39942008ECA35 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		5A5FF60C1BD3994D008ECA35 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5A5FF60E1BD3995C008ECA35 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5A5FF6101BD39968008ECA35 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5A86D0CA1BD2B7F5009C1AEE /* wolf.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wolf.mp3; sourceTree = "<group>"; };
 		5A86D0CC1BD2C21E009C1AEE /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -89,7 +113,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A5FF6111BD39968008ECA35 /* libsqlite3.tbd in Frameworks */,
+				5A5FF60F1BD3995C008ECA35 /* libz.tbd in Frameworks */,
+				5A5FF60D1BD3994D008ECA35 /* SystemConfiguration.framework in Frameworks */,
+				5A5FF60B1BD39942008ECA35 /* StoreKit.framework in Frameworks */,
+				5A5FF6091BD3993A008ECA35 /* Security.framework in Frameworks */,
+				5A5FF6071BD39932008ECA35 /* QuartzCore.framework in Frameworks */,
+				5A5FF6051BD39929008ECA35 /* CoreLocation.framework in Frameworks */,
+				5A5FF6031BD39920008ECA35 /* CoreGraphics.framework in Frameworks */,
+				5A5FF6011BD39916008ECA35 /* CFNetwork.framework in Frameworks */,
+				5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */,
 				5A86D0CD1BD2C21E009C1AEE /* iAd.framework in Frameworks */,
+				5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */,
+				5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,7 +142,6 @@
 		437451F1193D163700654986 = {
 			isa = PBXGroup;
 			children = (
-				5A86D0CC1BD2C21E009C1AEE /* iAd.framework */,
 				437451FC193D163700654986 /* FlappyBird */,
 				43745213193D163800654986 /* FlappyBirdTests */,
 				437451FB193D163700654986 /* Products */,
@@ -126,6 +161,7 @@
 		437451FC193D163700654986 /* FlappyBird */ = {
 			isa = PBXGroup;
 			children = (
+				5A5FF5F91BD398B5008ECA35 /* Frameworks */,
 				5A8E03DD1BD244800078AAC4 /* Sounds */,
 				5A8E03DA1BD231030078AAC4 /* Images */,
 				5A8E03D71BD22F390078AAC4 /* Fonts */,
@@ -192,6 +228,26 @@
 				5A14C5761BD2A80A00047CBC /* share-facebook.png */,
 			);
 			name = button;
+			sourceTree = "<group>";
+		};
+		5A5FF5F91BD398B5008ECA35 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A5FF6101BD39968008ECA35 /* libsqlite3.tbd */,
+				5A5FF60E1BD3995C008ECA35 /* libz.tbd */,
+				5A5FF60C1BD3994D008ECA35 /* SystemConfiguration.framework */,
+				5A5FF60A1BD39942008ECA35 /* StoreKit.framework */,
+				5A5FF6081BD3993A008ECA35 /* Security.framework */,
+				5A5FF6061BD39932008ECA35 /* QuartzCore.framework */,
+				5A5FF6041BD39929008ECA35 /* CoreLocation.framework */,
+				5A5FF6021BD39920008ECA35 /* CoreGraphics.framework */,
+				5A5FF6001BD39916008ECA35 /* CFNetwork.framework */,
+				5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */,
+				5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */,
+				5A5FF5FB1BD398CD008ECA35 /* Parse.framework */,
+				5A86D0CC1BD2C21E009C1AEE /* iAd.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		5A8E03D71BD22F390078AAC4 /* Fonts */ = {
@@ -492,6 +548,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: HUU DUNG NGUYEN (34ZZ9A4787)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HUU DUNG NGUYEN (34ZZ9A4787)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FlappyBird",
+				);
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -508,6 +568,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: HUU DUNG NGUYEN (TY52BPKFCE)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HUU DUNG NGUYEN (TY52BPKFCE)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FlappyBird",
+				);
 				INFOPLIST_FILE = FlappyBird/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
