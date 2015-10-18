@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register Parse.com
         Parse.setApplicationId("Z6eXotqlZx4hDbfXf8oQopmWJHOlrTv5PER6b2fv",
             clientKey: "IBKqgjDEowvSliiE6sM3klswIWchAr9T6MWcGIxm")
-        
+                
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless
             // "content_available" was used to trigger a background push (introduced in iOS 7).

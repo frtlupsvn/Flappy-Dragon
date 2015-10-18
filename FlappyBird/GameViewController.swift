@@ -33,7 +33,7 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDelegate {
-
+    
     //MARK: - IBOulet
     @IBOutlet weak var lblHighestScore: UILabel!
     @IBOutlet weak var lblHighestScoreBoard: UILabel!
@@ -44,7 +44,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     
     //MARK: - IBAction
     @IBAction func btnShareFacebookTapped(sender: AnyObject) {
-      shareButtonPress()
+        shareButtonPress()
     }
     
     //MARK: - Parameters
@@ -77,7 +77,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         }
         
         //
-
+        
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -96,11 +96,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             
         }
     }
-
+    
     override func shouldAutorotate() -> Bool {
         return true
     }
-
+    
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
             return UIInterfaceOrientationMask.AllButUpsideDown
@@ -108,7 +108,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             return UIInterfaceOrientationMask.All
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
@@ -138,7 +138,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         return image
     }
     
-
+    
     // MARK: - GameScene Delegate
     
     func updateHighestScore(score: NSInteger) {
@@ -170,11 +170,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             self.imgMedal.image = UIImage(named: "gold.png")
         }
     }
-        
+    
     
     func gameStarted(){
-       self.viewScoreBoard.hidden = true
-        self.btnShareFacebook.hidden = true
+        viewScoreBoard.hidden = true
+        btnShareFacebook.hidden = true
     }
     
     func gameOver(score: NSInteger){
@@ -190,20 +190,9 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             NSUserDefaults.standardUserDefaults().setObject(score, forKey: "highestScore")
             NSUserDefaults.standardUserDefaults().synchronize()
             
-            // Save highest score to Parse
-            let gameScore = PFObject(className:"GameScore")
-            gameScore["score"] = score
-            let installation = PFInstallation.currentInstallation()
-            gameScore["device"] = installation
+            // save record to PARSE
+            saveRecordToParse(score)
             
-            gameScore.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    // The object has been saved.
-                } else {
-                    // There was a problem, check error.description
-                }
-            }
         }
         
     }
@@ -217,4 +206,62 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         bannerView.hidden = true
     }
     
+    
+    //MARK: - PARSE
+    func saveRecordToParse(score:NSInteger){
+        
+        func createNewGameScore(score:NSInteger,device:PFInstallation){
+            
+            let gameScore = PFObject(className:"GameScore")
+            gameScore["score"] = score
+            gameScore["device"] = device
+            gameScore.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
+        }
+        
+        
+        // get device information
+        let installation = PFInstallation.currentInstallation()
+        
+        //Check this device has data exist on Parse?
+        let query = PFQuery(className:"GameScore")
+        query.whereKey("device", equalTo:installation)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                if (objects!.count == 0){
+                    // create new 
+                    createNewGameScore(score, device: installation)
+                    
+                }else{
+                    //update
+                        for object in objects! {
+                            let query = PFQuery(className:"GameScore")
+                            query.getObjectInBackgroundWithId(object.objectId!) {
+                                (gameScore: PFObject?, error: NSError?) -> Void in
+                                if error != nil {
+                                    print(error)
+                                } else if let gameScore = gameScore {
+                                    gameScore["score"] = score
+                                    gameScore.saveInBackground()
+                                }
+                            }
+                        }
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        
+    }
 }
