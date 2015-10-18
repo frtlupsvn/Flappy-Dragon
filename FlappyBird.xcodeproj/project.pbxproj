@@ -292,6 +292,11 @@
 					437451F9193D163700654986 = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = TY52BPKFCE;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					4374520F193D163800654986 = {
 						CreatedOnToolsVersion = 6.0;
