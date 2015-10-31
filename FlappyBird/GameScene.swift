@@ -149,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.addChild(bird)
         
         // create the ground
-        var ground = SKNode()
+        let ground = SKNode()
         ground.position = CGPoint(x: 0, y: groundTexture.size().height)
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: self.frame.size.width, height: groundTexture.size().height * 2.0))
         ground.physicsBody?.dynamic = false
@@ -196,7 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pipeUp.physicsBody?.contactTestBitMask = birdCategory
         pipePair.addChild(pipeUp)
         
-        var contactNode = SKNode()
+        let contactNode = SKNode()
         contactNode.position = CGPoint( x: pipeDown.size.width + bird.size.width / 2, y: self.frame.midY )
         contactNode.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize( width: pipeUp.size.width, height: self.frame.size.height ))
         contactNode.physicsBody?.dynamic = false
