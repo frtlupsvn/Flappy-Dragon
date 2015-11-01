@@ -107,7 +107,8 @@ class ZCCLoginViewController: UIViewController {
                 self.btnFacebook.clipsToBounds = true
                 self.btnFacebook.setImage(UIImage(data: imageData!), forState: .Normal)
                 self.lblFacebookName.text = currentUser?.objectForKey("fullname") as? String
-                self.showLoginFBSuccess((currentUser?.objectForKey("fullname") as? String)!)
+                self.getUserRecord()
+                
                 
             }
         }
@@ -129,7 +130,49 @@ class ZCCLoginViewController: UIViewController {
         alertView.addButton("Start Game") {
             self.startGame()
         }
-        alertView.showSuccess("Flappy Bat", subTitle: "Hello " + name + "\n You can start a game now !")
+        let highestScore = NSUserDefaults.standardUserDefaults().objectForKey("highestScore") as! NSInteger
+        alertView.showSuccess("Flappy Bat", subTitle: "Hello " + name + "\n Your record:" + String(highestScore) + "\n You can start a game now !")
+    }
+    
+    func getUserRecord(){
+
+        var scoreUser = 0
+        // get device information
+        let currentUser = PFUser.currentUser()
+        
+        //Check this device has data exist on Parse?
+        let query = PFQuery(className:"GameScore")
+        query.whereKey("facebookUser", equalTo:currentUser!)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                if (objects!.count == 0){
+                    
+                }else{
+                    for object in objects! {
+                        let query = PFQuery(className:"GameScore")
+                        query.getObjectInBackgroundWithId(object.objectId!) {
+                            (gameScore: PFObject?, error: NSError?) -> Void in
+                            if error != nil {
+                                print(error)
+                            } else if let gameScore = gameScore {
+                                scoreUser = (gameScore["score"] as? NSInteger)!
+                                // Save score to local database
+                                NSUserDefaults.standardUserDefaults().setObject(scoreUser, forKey: "highestScore")
+                                NSUserDefaults.standardUserDefaults().synchronize()
+                                
+                                self.showLoginFBSuccess((currentUser?.objectForKey("fullname") as? String)!)
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
     }
 
 

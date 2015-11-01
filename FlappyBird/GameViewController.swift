@@ -163,6 +163,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
                 if (error == nil){
                     print("user log out")
+                    
+                    // Reset highest score to Zero when user logout
+                    NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highestScore")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     
                 }
@@ -259,15 +264,12 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     //MARK: - PARSE
     func saveRecordToParse(score:NSInteger){
         
-        func createNewGameScore(score:NSInteger,device:PFInstallation){
+        func createNewGameScore(score:NSInteger,user:PFUser){
             
             let gameScore = PFObject(className:"GameScore")
             gameScore["score"] = score
-            gameScore["device"] = device
-            if ((PFUser.currentUser()) != nil){
-                gameScore["facebookUser"] = PFUser.currentUser()
-
-            }
+            gameScore["facebookUser"] = user
+            
             gameScore.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -280,11 +282,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         
         
         // get device information
-        let installation = PFInstallation.currentInstallation()
+        let currentUser = PFUser.currentUser()
         
         //Check this device has data exist on Parse?
         let query = PFQuery(className:"GameScore")
-        query.whereKey("device", equalTo:installation)
+        query.whereKey("facebookUser", equalTo:currentUser!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -292,7 +294,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
                 print("Successfully retrieved \(objects!.count) scores.")
                 if (objects!.count == 0){
                     // create new 
-                    createNewGameScore(score, device: installation)
+                    createNewGameScore(score, user: currentUser!)
                     
                 }else{
                     //update
