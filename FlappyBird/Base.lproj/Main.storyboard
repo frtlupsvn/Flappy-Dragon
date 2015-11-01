@@ -209,9 +209,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="MgM-EY-nXg"/>
                                 <exclude reference="Hbm-WG-KCc"/>
                                 <exclude reference="gcQ-r6-mBN"/>
-                                <exclude reference="MgM-EY-nXg"/>
                             </mask>
                         </variation>
                     </view>
