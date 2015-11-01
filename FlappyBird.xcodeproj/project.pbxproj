@@ -23,6 +23,7 @@
 		5A32B8731BE5E1C1005C50DC /* ZCCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */; };
 		5A32B87B1BE5ECD1005C50DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B8791BE5ECD1005C50DC /* Info.plist */; };
 		5A32B87C1BE5ECD1005C50DC /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */; };
+		5A32B87F1BE66201005C50DC /* bat-dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B87E1BE66201005C50DC /* bat-dead.png */; };
 		5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */; };
 		5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FB1BD398CD008ECA35 /* Parse.framework */; };
 		5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */; };
@@ -89,6 +90,7 @@
 		5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCCLoginViewController.swift; sourceTree = "<group>"; };
 		5A32B8791BE5ECD1005C50DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		5A32B87E1BE66201005C50DC /* bat-dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat-dead.png"; sourceTree = "<group>"; };
 		5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5A5FF5FB1BD398CD008ECA35 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -269,6 +271,14 @@
 			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
+		5A32B87D1BE661F1005C50DC /* others sprite */ = {
+			isa = PBXGroup;
+			children = (
+				5A32B87E1BE66201005C50DC /* bat-dead.png */,
+			);
+			name = "others sprite";
+			sourceTree = "<group>";
+		};
 		5A5FF5F91BD398B5008ECA35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +313,7 @@
 		5A8E03DA1BD231030078AAC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5A32B87D1BE661F1005C50DC /* others sprite */,
 				5AB1A9AB1BE52B2F0071E77E /* social */,
 				5A14C5751BD2A7FC00047CBC /* button */,
 				5A14C56E1BD2A19700047CBC /* medal */,
@@ -436,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A8E03F81BD26D670078AAC4 /* halloween-bg.png in Resources */,
+				5A32B87F1BE66201005C50DC /* bat-dead.png in Resources */,
 				5A8E03F51BD24F1F0078AAC4 /* frame-7.png in Resources */,
 				5A8E03DC1BD2312B0078AAC4 /* city-backbground.jpg in Resources */,
 				5A14C5741BD2A1AF00047CBC /* gold.png in Resources */,

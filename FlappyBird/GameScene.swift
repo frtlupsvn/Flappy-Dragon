@@ -24,17 +24,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var skyColor:SKColor!
     var pipeTextureUp:SKTexture!
     var pipeTextureDown:SKTexture!
+    var batDeadTexture:SKTexture!
     var movePipesAndRemove:SKAction!
     var moving:SKNode!
     var pipes:SKNode!
     var canRestart = Bool()
     var scoreLabelNode:SKLabelNode!
     var score = NSInteger()
+    var pipeNumber = NSInteger()
     
     let birdCategory: UInt32 = 1 << 0
-    let worldCategory: UInt32 = 1 << 1
-    let pipeCategory: UInt32 = 1 << 2
-    let scoreCategory: UInt32 = 1 << 3
+    let deadCategory: UInt32 = 1 << 1
+    let worldCategory: UInt32 = 1 << 2
+    let pipeCategory: UInt32 = 1 << 3
+    let scoreCategory: UInt32 = 1 << 4
+    
     
     var scoreDelegate:GameScenePlayDelegate?
     
@@ -98,6 +102,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         pipeTextureDown = SKTexture(imageNamed: "PipeDown")
         pipeTextureDown.filteringMode = .Nearest
         
+        // create bat dead texture
+        batDeadTexture = SKTexture(imageNamed: "bat-dead.png")
+        batDeadTexture.filteringMode = .Nearest
+        
         // create the pipes movement actions
         let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width)
         let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.01 * distanceToMove))
@@ -105,7 +113,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
         
         // spawn the pipes
-        let spawn = SKAction.runBlock({() in self.spawnPipes()})
+        let spawn = SKAction.runBlock({() in
+            self.spawnPipes()
+        })
         let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
         let spawnThenDelay = SKAction.sequence([spawn, delay])
         let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
@@ -158,6 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         // Initialize label and create a label which holds the score
         score = 0
+        pipeNumber = 0
         scoreLabelNode = SKLabelNode(fontNamed:"MarkerFelt-Wide")
         scoreLabelNode.position = CGPoint( x: self.frame.midX, y: 3 * self.frame.size.height / 4 )
         scoreLabelNode.zPosition = 100
@@ -165,8 +176,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         self.addChild(scoreLabelNode)
 
     }
+    func spawnDeadBat(){
+        
+        let batDead = SKSpriteNode(texture: batDeadTexture)
+        batDead.setScale(0.1)
+        batDead.position = CGPoint(x: self.frame.size.width * 0.5, y:self.frame.size.height * 0.3)
+        
+        batDead.physicsBody = SKPhysicsBody(circleOfRadius: batDead.size.height / 3.2)
+        batDead.physicsBody?.dynamic = true
+        batDead.physicsBody?.allowsRotation = true
+
+        
+        batDead.physicsBody?.categoryBitMask = deadCategory
+        batDead.physicsBody?.collisionBitMask = worldCategory | pipeCategory
+        
+        self.addChild(batDead)
+    }
     
     func spawnPipes() {
+        
+        self.pipeNumber++
+        
         let pipePair = SKNode()
         pipePair.position = CGPoint( x: self.frame.size.width + pipeTextureUp.size().width * 2, y: 0 )
         pipePair.zPosition = -10
@@ -204,8 +234,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         contactNode.physicsBody?.contactTestBitMask = birdCategory
         pipePair.addChild(contactNode)
         
+//        let batDead = SKSpriteNode(texture: batDeadTexture)
+//        batDead.setScale(0.1)
+//        batDead.position = CGPoint(x: 80, y: 120)
+//        
+//        batDead.physicsBody = SKPhysicsBody(circleOfRadius: batDead.size.height / 3.2)
+//        batDead.physicsBody?.dynamic = false
+//        batDead.physicsBody?.allowsRotation = false
+//        
+//        batDead.physicsBody?.categoryBitMask = deadCategory
+//        batDead.physicsBody?.collisionBitMask = worldCategory | pipeCategory
+//        
+//        pipePair.addChild(batDead)
+        
         pipePair.runAction(movePipesAndRemove)
         pipes.addChild(pipePair)
+        
         
     }
     
@@ -231,6 +275,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         // Reset score
         score = 0
+        pipeNumber = 0
         scoreDelegate?.updateHighestScore(0)
         scoreLabelNode.text = String(score)
         
