@@ -19,6 +19,10 @@
 		5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5701BD2A1AF00047CBC /* bronze.png */; };
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; };
 		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; };
+		5A32B8711BE5E117005C50DC /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B8701BE5E117005C50DC /* bgLogin.jpg */; };
+		5A32B8731BE5E1C1005C50DC /* ZCCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */; };
+		5A32B87B1BE5ECD1005C50DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B8791BE5ECD1005C50DC /* Info.plist */; };
+		5A32B87C1BE5ECD1005C50DC /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */; };
 		5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */; };
 		5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FB1BD398CD008ECA35 /* Parse.framework */; };
 		5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */; };
@@ -48,6 +52,10 @@
 		5A8E03F51BD24F1F0078AAC4 /* frame-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03ED1BD24F1F0078AAC4 /* frame-7.png */; };
 		5A8E03F61BD24F1F0078AAC4 /* frame-8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03EE1BD24F1F0078AAC4 /* frame-8.png */; };
 		5A8E03F81BD26D670078AAC4 /* halloween-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A8E03F71BD26D670078AAC4 /* halloween-bg.png */; };
+		5AB1A9A71BE4D5D90071E77E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB1A9A51BE4D5D90071E77E /* FBSDKCoreKit.framework */; };
+		5AB1A9A81BE4D5D90071E77E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB1A9A61BE4D5D90071E77E /* FBSDKLoginKit.framework */; };
+		5AB1A9AA1BE4D8D50071E77E /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB1A9A91BE4D8D50071E77E /* ParseFacebookUtilsV4.framework */; };
+		5AB1A9AF1BE532D40071E77E /* facebookBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AB1A9AE1BE532D40071E77E /* facebookBtn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,10 @@
 		5A14C5701BD2A1AF00047CBC /* bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bronze.png; sourceTree = "<group>"; };
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
+		5A32B8701BE5E117005C50DC /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgLogin.jpg; sourceTree = "<group>"; };
+		5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCCLoginViewController.swift; sourceTree = "<group>"; };
+		5A32B8791BE5ECD1005C50DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5A5FF5FB1BD398CD008ECA35 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -106,6 +118,10 @@
 		5A8E03ED1BD24F1F0078AAC4 /* frame-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-7.png"; sourceTree = "<group>"; };
 		5A8E03EE1BD24F1F0078AAC4 /* frame-8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "frame-8.png"; sourceTree = "<group>"; };
 		5A8E03F71BD26D670078AAC4 /* halloween-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "halloween-bg.png"; sourceTree = "<group>"; };
+		5AB1A9A51BE4D5D90071E77E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		5AB1A9A61BE4D5D90071E77E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		5AB1A9A91BE4D8D50071E77E /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		5AB1A9AE1BE532D40071E77E /* facebookBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebookBtn.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 			files = (
 				5A5FF6111BD39968008ECA35 /* libsqlite3.tbd in Frameworks */,
 				5A5FF60F1BD3995C008ECA35 /* libz.tbd in Frameworks */,
+				5AB1A9A81BE4D5D90071E77E /* FBSDKLoginKit.framework in Frameworks */,
 				5A5FF60D1BD3994D008ECA35 /* SystemConfiguration.framework in Frameworks */,
 				5A5FF60B1BD39942008ECA35 /* StoreKit.framework in Frameworks */,
 				5A5FF6091BD3993A008ECA35 /* Security.framework in Frameworks */,
@@ -122,8 +139,10 @@
 				5A5FF6051BD39929008ECA35 /* CoreLocation.framework in Frameworks */,
 				5A5FF6031BD39920008ECA35 /* CoreGraphics.framework in Frameworks */,
 				5A5FF6011BD39916008ECA35 /* CFNetwork.framework in Frameworks */,
+				5AB1A9AA1BE4D8D50071E77E /* ParseFacebookUtilsV4.framework in Frameworks */,
 				5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */,
 				5A86D0CD1BD2C21E009C1AEE /* iAd.framework in Frameworks */,
+				5AB1A9A71BE4D5D90071E77E /* FBSDKCoreKit.framework in Frameworks */,
 				5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */,
 				5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */,
 			);
@@ -161,6 +180,7 @@
 		437451FC193D163700654986 /* FlappyBird */ = {
 			isa = PBXGroup;
 			children = (
+				5A32B8741BE5EAD6005C50DC /* Vendor */,
 				5A5FF5F91BD398B5008ECA35 /* Frameworks */,
 				5A8E03DD1BD244800078AAC4 /* Sounds */,
 				5A8E03DA1BD231030078AAC4 /* Images */,
@@ -168,6 +188,7 @@
 				437451FF193D163700654986 /* AppDelegate.swift */,
 				43745201193D163700654986 /* GameScene.sks */,
 				43745203193D163800654986 /* GameScene.swift */,
+				5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */,
 				43745205193D163800654986 /* GameViewController.swift */,
 				43745207193D163800654986 /* Main.storyboard */,
 				5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */,
@@ -206,6 +227,7 @@
 		5A14C56D1BD2A18D00047CBC /* background */ = {
 			isa = PBXGroup;
 			children = (
+				5A32B8701BE5E117005C50DC /* bgLogin.jpg */,
 				5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */,
 				5A8E03F71BD26D670078AAC4 /* halloween-bg.png */,
 			);
@@ -230,9 +252,29 @@
 			name = button;
 			sourceTree = "<group>";
 		};
+		5A32B8741BE5EAD6005C50DC /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				5A32B8781BE5ECD1005C50DC /* SCLAlertView */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		5A32B8781BE5ECD1005C50DC /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5A32B8791BE5ECD1005C50DC /* Info.plist */,
+				5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */,
+			);
+			path = SCLAlertView;
+			sourceTree = "<group>";
+		};
 		5A5FF5F91BD398B5008ECA35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5AB1A9A91BE4D8D50071E77E /* ParseFacebookUtilsV4.framework */,
+				5AB1A9A51BE4D5D90071E77E /* FBSDKCoreKit.framework */,
+				5AB1A9A61BE4D5D90071E77E /* FBSDKLoginKit.framework */,
 				5A5FF6101BD39968008ECA35 /* libsqlite3.tbd */,
 				5A5FF60E1BD3995C008ECA35 /* libz.tbd */,
 				5A5FF60C1BD3994D008ECA35 /* SystemConfiguration.framework */,
@@ -261,6 +303,7 @@
 		5A8E03DA1BD231030078AAC4 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				5AB1A9AB1BE52B2F0071E77E /* social */,
 				5A14C5751BD2A7FC00047CBC /* button */,
 				5A14C56E1BD2A19700047CBC /* medal */,
 				5A14C56D1BD2A18D00047CBC /* background */,
@@ -293,6 +336,14 @@
 				5A8E03EE1BD24F1F0078AAC4 /* frame-8.png */,
 			);
 			name = "bat sprite";
+			sourceTree = "<group>";
+		};
+		5AB1A9AB1BE52B2F0071E77E /* social */ = {
+			isa = PBXGroup;
+			children = (
+				5AB1A9AE1BE532D40071E77E /* facebookBtn.png */,
+			);
+			name = social;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,7 +391,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ZCC;
-				LastSwiftMigration = 0700;
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = ZoomCanCode.com;
@@ -398,16 +449,19 @@
 				5A8E03F11BD24F1F0078AAC4 /* frame-3.png in Resources */,
 				5A8E03F01BD24F1F0078AAC4 /* frame-2.png in Resources */,
 				43745202193D163700654986 /* GameScene.sks in Resources */,
+				5A32B8711BE5E117005C50DC /* bgLogin.jpg in Resources */,
 				5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */,
 				437A3DBA193D326A00909BA0 /* bird.atlas in Resources */,
 				5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */,
 				5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */,
 				5A8E03EF1BD24F1F0078AAC4 /* frame-1.png in Resources */,
+				5A32B87B1BE5ECD1005C50DC /* Info.plist in Resources */,
 				5A8E03F41BD24F1F0078AAC4 /* frame-6.png in Resources */,
 				5A8E03E11BD2448F0078AAC4 /* hit.wav in Resources */,
 				43745209193D163800654986 /* Main.storyboard in Resources */,
 				5A14C5721BD2A1AF00047CBC /* silver.png in Resources */,
 				5A8E03E01BD2448F0078AAC4 /* flap.wav in Resources */,
+				5AB1A9AF1BE532D40071E77E /* facebookBtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +481,9 @@
 			files = (
 				43745204193D163800654986 /* GameScene.swift in Sources */,
 				43745206193D163800654986 /* GameViewController.swift in Sources */,
+				5A32B87C1BE5ECD1005C50DC /* SCLAlertView.swift in Sources */,
 				43745200193D163700654986 /* AppDelegate.swift in Sources */,
+				5A32B8731BE5E1C1005C50DC /* ZCCLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

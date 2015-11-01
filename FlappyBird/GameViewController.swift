@@ -11,6 +11,7 @@ import SpriteKit
 import Social
 import iAd
 import Parse
+import ParseFacebookUtilsV4
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -41,6 +42,9 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     @IBOutlet weak var viewScoreBoard: UIView!
     @IBOutlet weak var imgMedal: UIImageView!
     @IBOutlet weak var btnShareFacebook: UIButton!
+    @IBOutlet weak var lblFacebookName: UILabel!
+    
+    
     
     //MARK: - IBAction
     @IBAction func btnShareFacebookTapped(sender: AnyObject) {
@@ -95,6 +99,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             
             
         }
+        
+        //Facebook
+        if ((PFUser.currentUser()) != nil){
+            self.updateFacebookStatus()
+        }
     }
     
     override func shouldAutorotate() -> Bool {
@@ -117,10 +126,10 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     // MARK: - BUTTON TAPPED
     func shareButtonPress() {
         
-        var postPhrase = "New high score"
+        let postPhrase = "New high score"
         
         //Generate the screenshot
-        var image = capture()
+        let image = capture()
         let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         
         shareToFacebook.setInitialText(postPhrase)
@@ -138,6 +147,51 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         return image
     }
     
+    @IBOutlet weak var btnFacebook: UIButton!
+    
+    @IBAction func btnFacebookTapped(sender: AnyObject) {
+        
+        if ((PFUser.currentUser()) != nil){
+            self.showLogoutPopup()
+        }
+}
+
+    func showLogoutPopup(){
+        let alertView = SCLAlertView()
+        
+        alertView.addButton("Log Out") {
+            PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
+                if (error == nil){
+                    print("user log out")
+                    
+                    // Reset highest score to Zero when user logout
+                    NSUserDefaults.standardUserDefaults().setObject(0, forKey: "highestScore")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                    
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
+                }
+            })
+        }
+        alertView.showWarning("Flappy Bat", subTitle: "Do you want to log out ?")
+    }
+    
+    func updateFacebookStatus(){
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let currentUser = PFUser.currentUser()
+            let imageFile = currentUser?.objectForKey("facebookProfilePicture")
+            let imageURL = NSURL(string: (imageFile?.url)!)
+            let imageData = NSData(contentsOfURL: imageURL!)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.btnFacebook.setImage(UIImage(data: imageData!), forState: .Normal)
+                self.btnFacebook.layer.cornerRadius = 0.5 * self.btnFacebook.bounds.size.width
+                self.btnFacebook.clipsToBounds = true
+                self.lblFacebookName.text = currentUser?.objectForKey("fullname") as? String
+            }
+        }
+    }
     
     // MARK: - GameScene Delegate
     
@@ -210,11 +264,12 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     //MARK: - PARSE
     func saveRecordToParse(score:NSInteger){
         
-        func createNewGameScore(score:NSInteger,device:PFInstallation){
+        func createNewGameScore(score:NSInteger,user:PFUser){
             
             let gameScore = PFObject(className:"GameScore")
             gameScore["score"] = score
-            gameScore["device"] = device
+            gameScore["facebookUser"] = user
+            
             gameScore.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -227,11 +282,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         
         
         // get device information
-        let installation = PFInstallation.currentInstallation()
+        let currentUser = PFUser.currentUser()
         
         //Check this device has data exist on Parse?
         let query = PFQuery(className:"GameScore")
-        query.whereKey("device", equalTo:installation)
+        query.whereKey("facebookUser", equalTo:currentUser!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
@@ -239,7 +294,7 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
                 print("Successfully retrieved \(objects!.count) scores.")
                 if (objects!.count == 0){
                     // create new 
-                    createNewGameScore(score, device: installation)
+                    createNewGameScore(score, user: currentUser!)
                     
                 }else{
                     //update
@@ -263,5 +318,15 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             }
         }
         
+    }
+    
+    func getProfPic(fid: String) -> NSData? {
+        if (fid != "") {
+            let imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=large" //type=normal
+            let imgURL = NSURL(string: imgURLString)
+            let imageData = NSData(contentsOfURL: imgURL!)
+            return imageData
+        }
+        return nil
     }
 }
