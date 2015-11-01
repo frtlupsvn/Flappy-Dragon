@@ -11,6 +11,7 @@ import SpriteKit
 import Social
 import iAd
 import Parse
+import ParseFacebookUtilsV4
 
 extension SKNode {
     class func unarchiveFromFile(file : String) -> SKNode? {
@@ -95,6 +96,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             
             
         }
+        
+        //Facebook
+        if ((PFUser.currentUser()) != nil){
+            self.updateFacebookStatus()
+        }
     }
     
     override func shouldAutorotate() -> Bool {
@@ -138,6 +144,75 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
         return image
     }
     
+    @IBOutlet weak var btnFacebook: UIButton!
+    
+    @IBAction func btnFacebookTapped(sender: AnyObject) {
+        
+        if ((PFUser.currentUser()) != nil){
+                        
+            PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
+                if (error == nil){
+                    print("user log out")
+                    self.btnFacebook.setImage(UIImage(named: "facebookBtn.png"), forState: .Normal)
+                }
+            })
+            
+        }else{
+            let permissions = ["public_profile","email","user_friends"]
+            PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
+                (user: PFUser?, error: NSError?) -> Void in
+                if let user = user {
+                    if user.isNew {
+                        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name,email,picture"])
+                        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                            if ((error) != nil)
+                            {
+                            } else {
+                                let userFullName = result.valueForKey("name") as? String
+                                let userEmail = result.valueForKey("email") as? String
+                                
+                                let facebookId = result.valueForKey("id") as? String
+                                let imageFile = PFFile(name: "profileImage.png", data: self.getProfPic(facebookId!)!)
+                                
+                                // Here I try to add the retrieved Facebook data to the PFUser object
+                                user["fullname"] = userFullName
+                                user.email = userEmail
+                                user["facebookProfilePicture"] = imageFile
+                                user.saveInBackgroundWithBlock({ (boolValue, error) -> Void in
+                                    self.updateFacebookStatus()
+                                })
+                            }
+                        })
+                    } else {
+                        print("User logged in through Facebook!")
+                        self.updateFacebookStatus()
+                        
+                    }
+                } else {
+                    print("Uh oh. The user cancelled the Facebook login.")
+                }
+            }
+ 
+        }
+        
+}
+    
+    func updateFacebookStatus(){
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let currentUser = PFUser.currentUser()
+            let imageFile = currentUser?.objectForKey("facebookProfilePicture")
+            let imageURL = NSURL(string: (imageFile?.url)!)
+            let imageData = NSData(contentsOfURL: imageURL!)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.btnFacebook.setImage(UIImage(data: imageData!), forState: .Normal)
+            }
+        }
+
+    
+        
+    }
     
     // MARK: - GameScene Delegate
     
@@ -215,6 +290,10 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             let gameScore = PFObject(className:"GameScore")
             gameScore["score"] = score
             gameScore["device"] = device
+            if ((PFUser.currentUser()) != nil){
+                gameScore["facebookUser"] = PFUser.currentUser()
+
+            }
             gameScore.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
@@ -263,5 +342,15 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             }
         }
         
+    }
+    
+    func getProfPic(fid: String) -> NSData? {
+        if (fid != "") {
+            var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=large" //type=normal
+            var imgURL = NSURL(string: imgURLString)
+            var imageData = NSData(contentsOfURL: imgURL!)
+            return imageData
+        }
+        return nil
     }
 }

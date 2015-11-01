@@ -8,6 +8,9 @@
 
 import UIKit
 import Parse
+import FBSDKCoreKit
+import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Register Parse.com
         Parse.setApplicationId("Z6eXotqlZx4hDbfXf8oQopmWJHOlrTv5PER6b2fv",
             clientKey: "IBKqgjDEowvSliiE6sM3klswIWchAr9T6MWcGIxm")
-                
+        PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        
+        // Initialize Parse's Facebook Utilities singleton. This uses the FacebookAppID we specified in our App bundle's plist.
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        PFUser.enableRevocableSessionInBackground()
+        
         if application.applicationState != UIApplicationState.Background {
             // Track an app open here if we launch with a push, unless
             // "content_available" was used to trigger a background push (introduced in iOS 7).
@@ -72,7 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        FBSDKAppEvents.activateApp()
     }
+    
     
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
@@ -99,6 +109,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
         }
+    }
+    func application(application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject) -> Bool {
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
+                openURL: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation)
     }
     
 }
