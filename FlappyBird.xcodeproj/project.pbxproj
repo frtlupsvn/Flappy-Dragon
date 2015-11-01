@@ -19,6 +19,10 @@
 		5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5701BD2A1AF00047CBC /* bronze.png */; };
 		5A14C5741BD2A1AF00047CBC /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5711BD2A1AF00047CBC /* gold.png */; };
 		5A14C5771BD2A80A00047CBC /* share-facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A14C5761BD2A80A00047CBC /* share-facebook.png */; };
+		5A32B8711BE5E117005C50DC /* bgLogin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B8701BE5E117005C50DC /* bgLogin.jpg */; };
+		5A32B8731BE5E1C1005C50DC /* ZCCLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */; };
+		5A32B87B1BE5ECD1005C50DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A32B8791BE5ECD1005C50DC /* Info.plist */; };
+		5A32B87C1BE5ECD1005C50DC /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */; };
 		5A5FF5FC1BD398CD008ECA35 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */; };
 		5A5FF5FD1BD398CD008ECA35 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FB1BD398CD008ECA35 /* Parse.framework */; };
 		5A5FF5FF1BD3990A008ECA35 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */; };
@@ -81,6 +85,10 @@
 		5A14C5701BD2A1AF00047CBC /* bronze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bronze.png; sourceTree = "<group>"; };
 		5A14C5711BD2A1AF00047CBC /* gold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gold.png; sourceTree = "<group>"; };
 		5A14C5761BD2A80A00047CBC /* share-facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-facebook.png"; sourceTree = "<group>"; };
+		5A32B8701BE5E117005C50DC /* bgLogin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgLogin.jpg; sourceTree = "<group>"; };
+		5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZCCLoginViewController.swift; sourceTree = "<group>"; };
+		5A32B8791BE5ECD1005C50DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
 		5A5FF5FA1BD398CD008ECA35 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		5A5FF5FB1BD398CD008ECA35 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		5A5FF5FE1BD3990A008ECA35 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -172,6 +180,7 @@
 		437451FC193D163700654986 /* FlappyBird */ = {
 			isa = PBXGroup;
 			children = (
+				5A32B8741BE5EAD6005C50DC /* Vendor */,
 				5A5FF5F91BD398B5008ECA35 /* Frameworks */,
 				5A8E03DD1BD244800078AAC4 /* Sounds */,
 				5A8E03DA1BD231030078AAC4 /* Images */,
@@ -179,6 +188,7 @@
 				437451FF193D163700654986 /* AppDelegate.swift */,
 				43745201193D163700654986 /* GameScene.sks */,
 				43745203193D163800654986 /* GameScene.swift */,
+				5A32B8721BE5E1C1005C50DC /* ZCCLoginViewController.swift */,
 				43745205193D163800654986 /* GameViewController.swift */,
 				43745207193D163800654986 /* Main.storyboard */,
 				5A8E03D51BD22AFB0078AAC4 /* Launch Screen.storyboard */,
@@ -217,6 +227,7 @@
 		5A14C56D1BD2A18D00047CBC /* background */ = {
 			isa = PBXGroup;
 			children = (
+				5A32B8701BE5E117005C50DC /* bgLogin.jpg */,
 				5A8E03DB1BD2312B0078AAC4 /* city-backbground.jpg */,
 				5A8E03F71BD26D670078AAC4 /* halloween-bg.png */,
 			);
@@ -239,6 +250,23 @@
 				5A14C5761BD2A80A00047CBC /* share-facebook.png */,
 			);
 			name = button;
+			sourceTree = "<group>";
+		};
+		5A32B8741BE5EAD6005C50DC /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				5A32B8781BE5ECD1005C50DC /* SCLAlertView */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		5A32B8781BE5ECD1005C50DC /* SCLAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				5A32B8791BE5ECD1005C50DC /* Info.plist */,
+				5A32B87A1BE5ECD1005C50DC /* SCLAlertView.swift */,
+			);
+			path = SCLAlertView;
 			sourceTree = "<group>";
 		};
 		5A5FF5F91BD398B5008ECA35 /* Frameworks */ = {
@@ -363,7 +391,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ZCC;
-				LastSwiftMigration = 0700;
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = ZoomCanCode.com;
@@ -421,11 +449,13 @@
 				5A8E03F11BD24F1F0078AAC4 /* frame-3.png in Resources */,
 				5A8E03F01BD24F1F0078AAC4 /* frame-2.png in Resources */,
 				43745202193D163700654986 /* GameScene.sks in Resources */,
+				5A32B8711BE5E117005C50DC /* bgLogin.jpg in Resources */,
 				5A86D0CB1BD2B7F5009C1AEE /* wolf.mp3 in Resources */,
 				437A3DBA193D326A00909BA0 /* bird.atlas in Resources */,
 				5A14C5731BD2A1AF00047CBC /* bronze.png in Resources */,
 				5A8E03D61BD22AFB0078AAC4 /* Launch Screen.storyboard in Resources */,
 				5A8E03EF1BD24F1F0078AAC4 /* frame-1.png in Resources */,
+				5A32B87B1BE5ECD1005C50DC /* Info.plist in Resources */,
 				5A8E03F41BD24F1F0078AAC4 /* frame-6.png in Resources */,
 				5A8E03E11BD2448F0078AAC4 /* hit.wav in Resources */,
 				43745209193D163800654986 /* Main.storyboard in Resources */,
@@ -451,7 +481,9 @@
 			files = (
 				43745204193D163800654986 /* GameScene.swift in Sources */,
 				43745206193D163800654986 /* GameViewController.swift in Sources */,
+				5A32B87C1BE5ECD1005C50DC /* SCLAlertView.swift in Sources */,
 				43745200193D163700654986 /* AppDelegate.swift in Sources */,
+				5A32B8731BE5E1C1005C50DC /* ZCCLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +601,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: HUU DUNG NGUYEN (34ZZ9A4787)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -589,7 +620,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: HUU DUNG NGUYEN (TY52BPKFCE)";
 				FRAMEWORK_SEARCH_PATHS = (

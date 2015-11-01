@@ -42,6 +42,9 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     @IBOutlet weak var viewScoreBoard: UIView!
     @IBOutlet weak var imgMedal: UIImageView!
     @IBOutlet weak var btnShareFacebook: UIButton!
+    @IBOutlet weak var lblFacebookName: UILabel!
+    
+    
     
     //MARK: - IBAction
     @IBAction func btnShareFacebookTapped(sender: AnyObject) {
@@ -123,10 +126,10 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     // MARK: - BUTTON TAPPED
     func shareButtonPress() {
         
-        var postPhrase = "New high score"
+        let postPhrase = "New high score"
         
         //Generate the screenshot
-        var image = capture()
+        let image = capture()
         let shareToFacebook = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         
         shareToFacebook.setInitialText(postPhrase)
@@ -149,53 +152,24 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     @IBAction func btnFacebookTapped(sender: AnyObject) {
         
         if ((PFUser.currentUser()) != nil){
-                        
+            self.showLogoutPopup()
+        }
+}
+
+    func showLogoutPopup(){
+        let alertView = SCLAlertView()
+        
+        alertView.addButton("Log Out") {
             PFUser.logOutInBackgroundWithBlock({ (error) -> Void in
                 if (error == nil){
                     print("user log out")
-                    self.btnFacebook.setImage(UIImage(named: "facebookBtn.png"), forState: .Normal)
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
                 }
             })
-            
-        }else{
-            let permissions = ["public_profile","email","user_friends"]
-            PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
-                (user: PFUser?, error: NSError?) -> Void in
-                if let user = user {
-                    if user.isNew {
-                        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"name,email,picture"])
-                        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-                            if ((error) != nil)
-                            {
-                            } else {
-                                let userFullName = result.valueForKey("name") as? String
-                                let userEmail = result.valueForKey("email") as? String
-                                
-                                let facebookId = result.valueForKey("id") as? String
-                                let imageFile = PFFile(name: "profileImage.png", data: self.getProfPic(facebookId!)!)
-                                
-                                // Here I try to add the retrieved Facebook data to the PFUser object
-                                user["fullname"] = userFullName
-                                user.email = userEmail
-                                user["facebookProfilePicture"] = imageFile
-                                user.saveInBackgroundWithBlock({ (boolValue, error) -> Void in
-                                    self.updateFacebookStatus()
-                                })
-                            }
-                        })
-                    } else {
-                        print("User logged in through Facebook!")
-                        self.updateFacebookStatus()
-                        
-                    }
-                } else {
-                    print("Uh oh. The user cancelled the Facebook login.")
-                }
-            }
- 
         }
-        
-}
+        alertView.showWarning("Flappy Bat", subTitle: "Do you want to log out ?")
+    }
     
     func updateFacebookStatus(){
         
@@ -207,11 +181,11 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.btnFacebook.setImage(UIImage(data: imageData!), forState: .Normal)
+                self.btnFacebook.layer.cornerRadius = 0.5 * self.btnFacebook.bounds.size.width
+                self.btnFacebook.clipsToBounds = true
+                self.lblFacebookName.text = currentUser?.objectForKey("fullname") as? String
             }
         }
-
-    
-        
     }
     
     // MARK: - GameScene Delegate
@@ -346,9 +320,9 @@ class GameViewController: UIViewController,GameScenePlayDelegate,ADBannerViewDel
     
     func getProfPic(fid: String) -> NSData? {
         if (fid != "") {
-            var imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=large" //type=normal
-            var imgURL = NSURL(string: imgURLString)
-            var imageData = NSData(contentsOfURL: imgURL!)
+            let imgURLString = "http://graph.facebook.com/" + fid + "/picture?type=large" //type=normal
+            let imgURL = NSURL(string: imgURLString)
+            let imageData = NSData(contentsOfURL: imgURL!)
             return imageData
         }
         return nil
